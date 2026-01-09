@@ -2,6 +2,7 @@ package com.polycube.assignment.domain.order;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -20,6 +21,7 @@ public class Order {
     private int itemPrice;
     private int discountPrice;
 
+    @Builder
     public Order(Long memberId, String itemName, int itemPrice, int discountPrice) {
         this.memberId = memberId;
         this.itemName = itemName;

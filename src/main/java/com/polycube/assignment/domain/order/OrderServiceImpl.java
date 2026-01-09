@@ -20,11 +20,16 @@ public class OrderServiceImpl implements OrderService {
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
 
         Member member = memberRepository.findById(memberId)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지않는 회원입니다."));
+                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 회원입니다."));
 
         int discountPrice = discountPolicy.discount(member, itemPrice);
 
-        Order order = new Order(memberId, itemName, itemPrice, discountPrice);
+        Order order = Order.builder()
+                .memberId(memberId)
+                .itemName(itemName)
+                .itemPrice(itemPrice)
+                .discountPrice(discountPrice)
+                .build();
 
         return orderRepository.save(order);
     }
