@@ -2,6 +2,7 @@ package com.polycube.assignment.config;
 
 import com.polycube.assignment.domain.discount.DiscountPolicy;
 import com.polycube.assignment.domain.discount.FixDiscountPolicy;
+import com.polycube.assignment.domain.discount.RateDiscountPolicy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,8 +13,8 @@ public class DiscountConfig {
     public DiscountPolicy discountPolicy() {
 
         // 1. VIP 1000원 할인
-        return new FixDiscountPolicy();
+        // return new FixDiscountPolicy();
         // 2. VVIP 10% 할인
-        // return new RateDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 }

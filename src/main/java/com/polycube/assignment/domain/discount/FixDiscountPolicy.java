@@ -5,14 +5,29 @@ import com.polycube.assignment.domain.member.Member;
 
 public class FixDiscountPolicy implements DiscountPolicy {
 
-    private int fixAmount = 1000;
+    private int discountAmount = 1000;
 
     @Override
     public int discount(Member member, int price) {
 
         if (member.getGrade() == Grade.VIP) {
-            return fixAmount;
+            return discountAmount;
         }
+        return 0;
+    }
+
+    @Override
+    public String getPolicyName() {
+        return "FixDiscountPolicy";
+    }
+
+    @Override
+    public String getDescription() {
+        return discountAmount + "원 고정 금액 할인";
+    }
+
+    @Override
+    public int getDiscountPercent() {
         return 0;
     }
 
