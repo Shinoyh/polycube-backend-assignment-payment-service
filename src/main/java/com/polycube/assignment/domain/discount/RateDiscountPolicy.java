@@ -1,27 +1,30 @@
-package com.polycube.assignment.domain.discount.grade;
+package com.polycube.assignment.domain.discount;
 
 import com.polycube.assignment.domain.member.Member;
 import org.springframework.stereotype.Component;
 
 @Component
-public class NoneDiscountPolicy implements DiscountPolicy {
+public class RateDiscountPolicy implements DiscountPolicy {
+
+    private int discountPercent = 10;
+
     @Override
     public int discount(Member member, int price) {
-        return 0;
+        return price * discountPercent / 100;
     }
 
     @Override
     public String getPolicyName() {
-        return "NoneDiscount";
+        return "RateDiscountPolicy";
     }
 
     @Override
     public String getDescription() {
-        return "할인 없음";
+        return "VVIP 고객은 주문 금액의 " + discountPercent +"% 할인";
     }
 
     @Override
     public int getDiscountPercent() {
-        return 0;
+        return discountPercent;
     }
 }

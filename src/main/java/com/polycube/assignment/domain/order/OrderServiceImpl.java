@@ -1,7 +1,7 @@
 package com.polycube.assignment.domain.order;
 
-import com.polycube.assignment.domain.discount.grade.DiscountPolicy;
-import com.polycube.assignment.domain.discount.grade.DiscountPolicyRouter;
+import com.polycube.assignment.domain.discount.DiscountPolicy;
+import com.polycube.assignment.domain.discount.DiscountPolicyRouter;
 import com.polycube.assignment.domain.member.Member;
 import com.polycube.assignment.domain.member.MemberRepository;
 import lombok.RequiredArgsConstructor;
