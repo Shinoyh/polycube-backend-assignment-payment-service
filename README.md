@@ -12,10 +12,10 @@
 
 **해결: 라우터(Router) 패턴 도입**
 단일 빈 주입 방식을 버리고, **Router 객체**가 회원의 등급을 분석하여 그에 맞는 적절한 `DiscountPolicy` 구현체를 동적으로 배급해 주도록 재설계했습니다.
-* **GradeDiscountRouter:** `Member` 정보를 받아 적절한 `DiscountPolicy`를 반환합니다.
+* **DiscountPolicyRouter:** `Member` 정보를 받아 적절한 `DiscountPolicy`를 반환합니다.
 * **장점:** 새로운 등급이 추가되어도 비즈니스 로직(`Service`)은 수정할 필요 없이, 정책 클래스 추가 및 라우터 분기만 조정하면 되므로 유지보수가 매우 용이합니다.
 
-### 2. 결제 수단 할인과 확장성 고려 (Router vs List Strategy)
+### 2. 결제 수단 할인과 확장성 고려 (Router vs List)
 **현황 및 고민:**
 결제 수단 할인 또한 일관성을 위해 **PaymentDiscountRouter**를 도입하여 관리하고 있습니다. 이를 통해 결제 수단별 정책이 변경되어도 유연한 대처가 가능합니다.
 
