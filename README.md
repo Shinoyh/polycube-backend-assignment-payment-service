@@ -1,4 +1,4 @@
-## 🚀 설계 고민과 해결 과정
+## 설계 고민과 해결 과정
 
 단순한 기능 구현을 넘어, 시스템이 커졌을 때도 유연하게 대응할 수 있는 설계를 목표로 했습니다. 특히, 할인 정책이 수시로 추가 및 변경된다는 점을 주요하게 생각해서 객체지향적으로 설계했습니다.
 
@@ -24,7 +24,7 @@
 
 ---
 
-## 📊 ERD (Entity Relationship Diagram)
+## ERD (Entity Relationship Diagram)
 중복 할인 이력을 정확히 관리하기 위해 Payment와 DiscountHistory를 **1:N 관계**로 설계했습니다.
 
 ```mermaid
@@ -34,7 +34,7 @@ erDiagram
     PAYMENT ||--o{ DISCOUNT_HISTORY : logs
 ```
 
-## 📂 Project Structure
+## Project Structure
 도메인 중심으로 패키지를 구성하여 관련 로직(Entity, Repository, Service)의 응집도를 높였습니다.
 
 ```text
