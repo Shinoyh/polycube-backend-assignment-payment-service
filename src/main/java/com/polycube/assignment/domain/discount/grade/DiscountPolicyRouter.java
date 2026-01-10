@@ -1,4 +1,4 @@
-package com.polycube.assignment.domain.discount;
+package com.polycube.assignment.domain.discount.grade;
 
 import com.polycube.assignment.domain.member.Grade;
 import com.polycube.assignment.domain.member.Member;
@@ -11,6 +11,7 @@ public class DiscountPolicyRouter {
 
     private final FixDiscountPolicy fixDiscountPolicy;
     private final RateDiscountPolicy rateDiscountPolicy;
+    private final NoneDiscountPolicy noneDiscountPolicy;
 
     public DiscountPolicy getDiscountPolicy(Member member) {
 
@@ -21,8 +22,6 @@ public class DiscountPolicyRouter {
             return rateDiscountPolicy;
         }
 
-        // 일반 회원은 어차피 고정 할인 정책에서 할인을 못받는다.
-        // 가독성을 위한다면 normalDiscontPolicy를 만드는 것이 좋겠다.
-        return fixDiscountPolicy;
+        return noneDiscountPolicy;
     }
 }

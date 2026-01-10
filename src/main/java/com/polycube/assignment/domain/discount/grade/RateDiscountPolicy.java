@@ -1,4 +1,4 @@
-package com.polycube.assignment.domain.discount;
+package com.polycube.assignment.domain.discount.grade;
 
 import com.polycube.assignment.domain.member.Grade;
 import com.polycube.assignment.domain.member.Member;
@@ -11,11 +11,7 @@ public class RateDiscountPolicy implements DiscountPolicy {
 
     @Override
     public int discount(Member member, int price) {
-
-        if (member.getGrade() == Grade.VVIP) {
-            return price * discountPercent / 100;
-        }
-        return 0;
+        return price * discountPercent / 100;
     }
 
     @Override
@@ -25,7 +21,7 @@ public class RateDiscountPolicy implements DiscountPolicy {
 
     @Override
     public String getDescription() {
-        return "주문 금액의 " + discountPercent +"% 할인";
+        return "VVIP 고객은 주문 금액의 " + discountPercent +"% 할인";
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.polycube.assignment.domain.discount;
+package com.polycube.assignment.domain.discount.grade;
 
 import com.polycube.assignment.domain.member.Member;
 
