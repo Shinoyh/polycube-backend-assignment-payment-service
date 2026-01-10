@@ -32,6 +32,4 @@ public class Order {
     public int calculatePrice() {
         return itemPrice - discountPrice;
     }
-
-    public int calculateDiscountRate() { return discountPrice / itemPrice * 100; }
 }

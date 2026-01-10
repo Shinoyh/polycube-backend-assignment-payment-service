@@ -25,7 +25,7 @@ public class OrderServiceTest {
 
     @Test
     @DisplayName("VIP 회원 할인 정책은 1000원 할인")
-    void createOrder() {
+    void createOrder_VIP() {
 
         //given
         Member member = new Member("memberA", Grade.VIP);
@@ -43,11 +43,30 @@ public class OrderServiceTest {
     }
 
     @Test
+    @DisplayName("VVIP 회원 할인 정책은 제품 가격의 10% 할인")
+    void createOrder_VVIP() {
+
+        //given
+        Member member = new Member("memberB", Grade.VVIP);
+        memberRepository.save(member);
+
+        //when
+        Order order = orderService.createOrder(member.getId(), "커피", 5000);
+
+        //then
+        // 할인 가격이 500원이 맞는지 확인
+        assertThat(order.getDiscountPrice()).isEqualTo(500);
+
+        // 최종 결제 금액이 3500원이 맞는지 확인
+        assertThat(order.calculatePrice()).isEqualTo(4500);
+    }
+
+    @Test
     @DisplayName("일반 회원 할인 정책은 없다")
     void createOrder_Normal() {
 
         //given
-        Member member = new Member("memberB", Grade.NORMAL);
+        Member member = new Member("memberC", Grade.NORMAL);
         memberRepository.save(member);
 
         //when
